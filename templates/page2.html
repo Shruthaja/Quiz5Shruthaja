@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src='https://cdn.plot.ly/plotly-2.24.1.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+
+    <title>Quiz5</title>
+</head>
+<body style="background-color:teal;">
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/page2.html" class="active">Page2</a></li>
+        <li><a href="/page3.html" >Page3</a></li>
+
+
+
+</ul>
+<div style="float:right;">
+    <h1>Shruthaja P Rao</h1>
+    <h2>1002118604</h2>
+</div>
+<div style="margin-top:3%">
+    <form action="/page2.html" method="post">
+        <input type="text" name="replace" placeholder="Character to replace">
+        <input type="text" name="toreplace" placeholder="Character that will replace">
+        <input type="text" name="lines" placeholder="Enter number of lines to display">
+<input type="submit">
+    </form>
+</div>
+
+<div style="margin-top:3%;">{% for i in result %}
+    <p> {{i}}</p>
+{% endfor %}</div>
+</body>
+</html>

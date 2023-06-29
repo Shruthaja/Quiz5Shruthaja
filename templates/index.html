@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src='https://cdn.plot.ly/plotly-2.24.1.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+
+    <title>Quiz5</title>
+</head>
+<body style="background-color:teal;">
+<ul>
+    <li><a href="/" class="active">Home</a></li>
+    <li><a href="/page2.html">Page2</a></li>
+        <li><a href="/page3.html" >Page3</a></li>
+
+<div></div>
+</ul>
+<div style="float:right;">
+    <h1>Shruthaja P Rao</h1>
+    <h2>1002118604</h2>
+</div>
+<div style="margin-top:3%;">
+    <form action="/" method="post">
+        <input type="text" name="number" placeholder="enter N for first N occurences of nouns">
+        <input type="submit">
+    </form>
+    <form action="/count" method="post">
+        <input type="text" name="letters" placeholder="enter letters to find frequencies">
+        <input type="submit">
+
+    </form>
+
+    <div style="margin-top:3%;"> <table>
+           <tr><th>Noun</th><th>Frequncy</th></tr>
+    {% for key, value in result.items() %}
+           <tr>
+ <td> {{ key }}</td><td> {{ value }}</td>
+               </tr>
+{% endfor %}
+           </table></div>
+   <div style="margin-top:3%;">
+       <table>
+           <tr><th>Letter</th><th>Count</th></tr>
+    {% for key, value in d.items() %}
+           <tr>
+ <td> {{ key }}</td><td> {{ value }}</td>
+               </tr>
+{% endfor %}
+           </table>
+
+   </div>
+    <div>
+
+       <table>
+           <tr><th>Letter</th><th>Frequncy</th></tr>
+    {% for key, value in total.items() %}
+           <tr>
+ <td> {{ key }}</td><td> {{ value }}</td>
+               </tr>
+{% endfor %}
+           </table>
+    </div>
+</div>
+
+</div>
+
+<script>
+var data = [{
+  x: {{r}},
+  y: {{result}},  mode: 'lines+markers',
+
+  name:'Db',
+  type: 'scatter'
+},{
+ x: {{r}},
+  y: {{redis_time}},  mode: 'lines+markers',
+
+  name: 'Redis',
+  type: 'scatter'
+}];
+console.log(data);
+var layout = {
+  title: '1000 Random Tuples vs Time Taken To Fetch'
+};
+Plotly.newPlot('myDiv',data,layout);
+
+
+
+
+
+</script>
+</body>
+<style>
+    table{font-size:20px;}
+</style>
+</html>
